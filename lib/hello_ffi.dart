@@ -1,13 +1,14 @@
-import 'dart:async';
+import 'dart:ffi';
+import 'dart:io' as io;
 
-import 'package:flutter/services.dart';
+final DynamicLibrary _module =
+  io.Platform.isAndroid
+    // Androidでは共有ライブラリを開く
+    ? DynamicLibrary.open("hello.so")
+    // iOSではアプリにスタティックリンクされてるのでプロセスのモジュールを開く
+    : DynamicLibrary.process();
 
-class HelloFfi {
-  static const MethodChannel _channel =
-      const MethodChannel('hello_ffi');
-
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
-}
+final int Function(int x, int y) nativeAdd =
+  _module
+    .lookup<NativeFunction<Int32 Function(Int32, Int32)>>("native_add")
+    .asFunction();

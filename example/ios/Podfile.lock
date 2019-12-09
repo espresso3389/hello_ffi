@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - hello_ffi (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - hello_ffi (from `.symlinks/plugins/hello_ffi/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  hello_ffi:
+    :path: ".symlinks/plugins/hello_ffi/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  hello_ffi: a77686693190ba73b87295f7d62d9407059723f2
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.7.5

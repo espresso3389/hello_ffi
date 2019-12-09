@@ -30,6 +30,12 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    externalNativeBuild {
+        // ここから同一ディレクトリ内にあるCMakeLists.txtを使ってcmakeを実行する
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
     defaultConfig {
         minSdkVersion 16
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
