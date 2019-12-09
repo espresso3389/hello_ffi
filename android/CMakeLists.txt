@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4.1)
 
-add_library( native_add
+add_library( hello
 
     # 共有ライブラリにする
     SHARED
